@@ -2,6 +2,14 @@ import React, { Component } from 'react'
 
 function CountdownLightSwitch() {
     
+    const [count, startCounter] = useState(30)
+
+    setCount(()=>{
+        count = count-1;
+        if(count == 0 ){
+            count = "TimesUp!"
+        }
+    })
 
     return (
         <>
@@ -23,9 +31,9 @@ function CountdownLightSwitch() {
                     <div class="progress-bar">
                         <div class="progress" id="progress"></div>
                     </div>
-                    <div class="timer" id="timerDisplay">30s</div>
+                    <div class="timer" id="timerDisplay">{count}s</div>
                     <div class="btn-group">
-                        <button id="startButton">Start Timer</button>
+                        <button id="startButton" onClick={startCounter()}>Start Timer</button>
                         <button id="resetButton" style="display: none;">Reset Timer</button>
                     </div>
                     <div class="message" id="messageArea"></div>
