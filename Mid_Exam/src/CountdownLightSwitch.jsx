@@ -3,11 +3,23 @@ import React, { Component } from 'react'
 function CountdownLightSwitch() {
     
     const [count, startCounter] = useState(30)
+    const [toggle, LightSwitch] = useState(false)
 
     setCount(()=>{
         count = count-1;
         if(count == 0 ){
             count = "TimesUp!"
+        }
+    })
+
+    LightSwitch(()=>{
+        if(!toggle){
+            container.setBackgroundColor = white;
+            toggle = true
+        }
+        else{
+            container.setBackgroundColor = black;
+            toggle = false
         }
     })
 
